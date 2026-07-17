@@ -1,0 +1,22 @@
+:root {
+  --text: #0e1116;
+  --text-light: #5b6472;
+  --text-muted: #475467;
+  --text-subtle: #98a2b3;
+  --accent: #2f6bff;
+  --accent-hover: #1d4fd8;
+  --accent-tint: #f0f5ff;
+  --surface: #f6f7f9;
+  --border: #eceef1;
+  --border-strong: #e6e8ec;
+  --canvas: #e9ebef;
+
+  --font-display: 'Space Grotesk', system-ui, sans-serif;
+  --font-body: 'Instrument Sans', system-ui, sans-serif;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--text);
+  background: var(--canvas);
+}
