@@ -39,7 +39,7 @@ function ItemDetail({ product }: ItemDetailProps) {
           <div className="detail__price">${product.price.toFixed(2)}</div>
           <p className="detail__description">{product.description}</p>
 
-          <ItemQuantitySelector />
+          <ItemQuantitySelector product={product} />
 
           <ul className="detail__features">
             <li className="detail__feature">

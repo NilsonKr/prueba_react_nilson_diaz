@@ -4,11 +4,13 @@ import { faMinus, faPlus } from '@fortawesome/free-solid-svg-icons'
 
 import AddItemButton from './AddItemButton'
 
+import type { Product } from '../types/product'
+
 type ItemQuantitySelectorProps = {
-  onAdd?: (quantity: number) => void
+  product: Product
 }
 
-function ItemQuantitySelector({ onAdd }: ItemQuantitySelectorProps) {
+function ItemQuantitySelector({ product }: ItemQuantitySelectorProps) {
   const [quantity, setQuantity] = useState<number>(1)
 
   const decrease = () => setQuantity((current) => Math.max(1, current - 1))
@@ -25,7 +27,7 @@ function ItemQuantitySelector({ onAdd }: ItemQuantitySelectorProps) {
           <FontAwesomeIcon icon={faPlus} />
         </button>
       </div>
-      <AddItemButton onClick={() => onAdd?.(quantity)} />
+      <AddItemButton product={product} quantity={quantity} />
     </div>
   )
 }

@@ -2,8 +2,10 @@ import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBagShopping } from '@fortawesome/free-solid-svg-icons'
 
+import { useCart } from '../context/CartContext'
+
 function CartWidget() {
-  const totalQuantity = 3
+  const { totalQuantity } = useCart()
 
   return (
     <Link to="/checkout" className="cart-widget" aria-label="Ver carrito">
