@@ -9,7 +9,7 @@ import type { Product } from '../types/product'
 
 import '../styles/ItemListContainer.css'
 
-interface ItemListContainerProps {
+type ItemListContainerProps = {
   greeting: string
 }
 

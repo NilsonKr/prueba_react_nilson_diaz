@@ -7,7 +7,7 @@ import type { Product } from '../types/product'
 
 import '../styles/Item.css'
 
-interface ItemProps {
+type ItemProps = {
   product: Product
 }
 

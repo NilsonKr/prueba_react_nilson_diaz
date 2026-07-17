@@ -1,0 +1,15 @@
+.detail-view {
+  padding-top: 32px;
+  padding-bottom: 64px;
+}
+
+.detail-view__state {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 320px;
+}
+
+.detail-view__state .spinner-border {
+  color: var(--accent);
+}

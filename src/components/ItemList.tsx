@@ -4,7 +4,7 @@ import Item from './Item'
 
 import type { Product } from '../types/product'
 
-interface ItemListProps {
+type ItemListProps = {
   products: Product[]
 }
 
