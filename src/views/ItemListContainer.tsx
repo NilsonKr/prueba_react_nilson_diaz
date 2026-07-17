@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Alert, Container, Spinner } from 'react-bootstrap'
+import { useSearchParams } from 'react-router-dom'
 
 import { getProducts } from '../services/products'
 
@@ -18,6 +19,9 @@ function ItemListContainer({ greeting }: ItemListContainerProps) {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')
 
+  const [searchParams] = useSearchParams()
+  const search = searchParams.get('search')?.trim() ?? ''
+
   useEffect(() => {
     getProducts()
       .then(setProducts)
@@ -25,12 +29,20 @@ function ItemListContainer({ greeting }: ItemListContainerProps) {
       .finally(() => setLoading(false))
   }, [])
 
+  const visibleProducts = search
+    ? products.filter((product) =>
+        product.title.toLowerCase().includes(search.toLowerCase()),
+      )
+    : products
+
   return (
     <Container className="catalog">
       <header className="catalog__head">
-        <h1 className="catalog__title">{greeting}</h1>
+        <h1 className="catalog__title">
+          {search ? `Resultados para "${search}"` : greeting}
+        </h1>
         {!loading && !error && (
-          <p className="catalog__count">{products.length} productos</p>
+          <p className="catalog__count">{visibleProducts.length} productos</p>
         )}
       </header>
 
@@ -42,7 +54,15 @@ function ItemListContainer({ greeting }: ItemListContainerProps) {
 
       {error && !loading && <Alert variant="danger">{error}</Alert>}
 
-      {!loading && !error && <ItemList products={products} />}
+      {!loading && !error && visibleProducts.length > 0 && (
+        <ItemList products={visibleProducts} />
+      )}
+
+      {!loading && !error && visibleProducts.length === 0 && (
+        <Alert variant="light" className="catalog__empty">
+          No encontramos productos que coincidan con tu búsqueda.
+        </Alert>
+      )}
     </Container>
   )
 }
