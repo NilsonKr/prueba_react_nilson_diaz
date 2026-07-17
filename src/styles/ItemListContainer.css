@@ -1,0 +1,32 @@
+.catalog {
+  padding-top: 40px;
+  padding-bottom: 64px;
+}
+
+.catalog__head {
+  margin-bottom: 28px;
+}
+
+.catalog__title {
+  margin: 0 0 6px;
+  font: 700 34px var(--font-display);
+  letter-spacing: -0.02em;
+  color: var(--text);
+}
+
+.catalog__count {
+  margin: 0;
+  font: 500 14px var(--font-body);
+  color: var(--text-light);
+}
+
+.catalog__state {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 240px;
+}
+
+.catalog__state .spinner-border {
+  color: var(--accent);
+}
